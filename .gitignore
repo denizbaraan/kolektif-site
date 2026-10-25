@@ -1,0 +1,8 @@
+# Yalnız yayınlanan site depoya girer; iç notlar, arşiv ve üretici kodu yerelde kalır.
+.DS_Store
+_arsiv/
+README.md
+FOTO-CEKIM-LISTESI.md
+seo/
+blog/kaynak/
+assets/foto/kaynak/

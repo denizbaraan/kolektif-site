@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kolektif</title>
+<meta name="description" content="Kolektif Kavaklıdere hasta uygulaması: tedavi sonrası talimatlar, randevu, acil durum rehberi.">
+<meta name="theme-color" content="#1E1C1B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Kolektif">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="../assets/img/favicon.png">
+<link rel="apple-touch-icon" href="icons/apple-180.png">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="uyg">
+
+<header class="ust" id="ust">
+  <img src="../assets/img/kolektif-kavaklidere-antrasit.svg" alt="kolektif kavaklıdere">
+  <button class="geri" id="geri" aria-label="Geri">‹ Bakım</button>
+</header>
+
+<main>
+
+<!-- BUGÜN -->
+<section class="ekran aktif" id="bugun">
+  <span class="durum" id="durum"><i></i><span></span></span>
+  <h1 id="selam">Merhaba.</h1>
+  <div class="hizli">
+    <a data-tel href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Ara</a>
+    <a data-wa href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5Z"/></svg>WhatsApp</a>
+    <a data-harita href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>Yol tarifi</a>
+  </div>
+
+  <div id="aktifTalimat"></div>
+
+  <h2>Sıradaki randevunuz</h2>
+  <div id="siradaki"></div>
+
+  <h2>Araçlar</h2>
+  <button class="kart koyu dokunur" id="fircaAc">
+    <span><span class="etiket">2 dakika</span><span class="buyuk" style="display:block">Fırçalama sayacı</span><span class="aciklama">Dört bölge, her biri 30 saniye.</span></span>
+  </button>
+  <button class="kart dokunur" data-git="bakim" data-acil>
+    <span><span class="etiket">Acil</span><h3>Diş kırıldı, düştü, kanama durmuyor</h3></span>
+  </button>
+</section>
+
+<!-- RANDEVU -->
+<section class="ekran" id="randevu">
+  <h1>Randevu</h1>
+  <p class="aciklama">Talebiniz WhatsApp üzerinden kliniğe iletilir. Randevu, klinik size dönüp saat verdiğinde kesinleşir.</p>
+  <form id="talepForm" autocomplete="on">
+    <label for="tAd">Adınız soyadınız</label>
+    <input id="tAd" name="ad" autocomplete="name" required>
+    <label>Konu</label>
+    <div class="cipler" data-tek="konu">
+      <span class="cip" role="button" tabindex="0" aria-pressed="true">İlk muayene</span>
+      <span class="cip" role="button" tabindex="0" aria-pressed="false">Kontrol</span>
+      <span class="cip" role="button" tabindex="0" aria-pressed="false">Ağrı / şikâyet</span>
+      <span class="cip" role="button" tabindex="0" aria-pressed="false">Tedavime devam</span>
+      <span class="cip" role="button" tabindex="0" aria-pressed="false">Diğer</span>
+    </div>
+    <label>Uygun günler</label>
+    <div class="cipler" data-coklu="gun">
+      <span class="cip" role="button" tabindex="0" aria-pressed="false">Pzt</span>
+      <span class="cip" role="button" tabindex="0" aria-pressed="false">Sal</span>
+      <span class="cip" role="button" tabindex="0" aria-pressed="false">Çar</span>
+      <span class="cip" role="button" tabindex="0" aria-pressed="false">Per</span>
+      <span class="cip" role="button" tabindex="0" aria-pressed="false">Cum</span>
+      <span class="cip" role="button" tabindex="0" aria-pressed="false">Cmt</span>
+    </div>
+    <label>Uygun saat</label>
+    <div class="cipler" data-coklu="saat">
+      <span class="cip" role="button" tabindex="0" aria-pressed="false">Sabah 09–12</span>
+      <span class="cip" role="button" tabindex="0" aria-pressed="false">Öğle 12–15</span>
+      <span class="cip" role="button" tabindex="0" aria-pressed="false">Akşam 15–19</span>
+    </div>
+    <label for="tNot">Not <span style="font-weight:400;color:var(--grafit)">(isteğe bağlı)</span></label>
+    <textarea id="tNot" name="not" placeholder="Örneğin: sağ alttaki dişim soğukta sızlıyor."></textarea>
+    <div class="dugmeler">
+      <button class="dugme" type="submit">WhatsApp ile gönder</button>
+      <a class="dugme bos" data-tel href="#">Telefonla arayın</a>
+    </div>
+  </form>
+
+  <h2>Randevularım</h2>
+  <div id="randevuListe"></div>
+  <details class="kart" id="randevuEkleKutu">
+    <summary style="cursor:pointer;font-weight:600">+ Kliniğin verdiği randevuyu ekleyin</summary>
+    <form id="randevuForm">
+      <div class="iki">
+        <div><label for="rTarih">Tarih</label><input type="date" id="rTarih" required></div>
+        <div><label for="rSaat">Saat</label><input type="time" id="rSaat" required step="300"></div>
+      </div>
+      <label for="rNe">Ne için</label>
+      <input id="rNe" placeholder="Örneğin: kontrol">
+      <div class="dugmeler"><button class="dugme" type="submit">Kaydet</button></div>
+    </form>
+  </details>
+  <p class="not">Randevularınız yalnız bu telefonda saklanır; kliniğe gönderilmez.</p>
+</section>
+
+<!-- BAKIM -->
+<section class="ekran" id="bakim">
+  <h1>Bakım</h1>
+  <p class="aciklama">İşleminizi seçin. Saati başlatırsanız ne zaman ne yapacağınız saat saat görünür.</p>
+  <h2>Tedavi sonrası</h2>
+  <div id="islemListe"></div>
+  <h2 id="acilBaslik">Acil durumda</h2>
+  <div id="acilListe"></div>
+  <p class="not">Bu bilgiler geneldir. Hekiminizin size verdiği yazılı talimat her zaman önceliklidir.</p>
+</section>
+
+<!-- TALİMAT DETAY -->
+<section class="ekran" id="detay"></section>
+
+<!-- KLİNİK -->
+<section class="ekran" id="klinik">
+  <h1>Klinik</h1>
+  <p class="aciklama" data-ad></p>
+
+  <div class="kart" style="margin-top:16px">
+    <span class="etiket">Adres</span><p data-adres style="margin:4px 0 12px"></p>
+    <span class="etiket">Çalışma saatleri</span><p data-saat style="margin:4px 0 12px"></p>
+    <span class="etiket">Telefon</span><p><a data-tel data-tel-metin href="#"></a></p>
+  </div>
+
+  <h2>Haklarınız</h2>
+  <div class="kart">
+    <ul class="liste evet">
+      <li>Rahatsızlık hissettiğinizde sol elinizi kaldırırsınız; işlem durur.</li>
+      <li>Her planda en az iki seçenek ve "hiçbir şey yapılmazsa ne olur" bilgisini alırsınız.</li>
+      <li>İmplant, çoklu çekim ve sağlam diş kesimi gerektiren kararlarda en az 24 saat düşünme süreniz olur.</li>
+      <li>Teklif yazılıdır; ödeme öncesinde her kalemi görürsünüz.</li>
+      <li>İşlem başlamadan önce onamınızı geri alabilirsiniz; bunun hiçbir olumsuz sonucu olmaz.</li>
+      <li>Eve yazılı talimatla gidersiniz. Cerrahi ve kanal tedavisinden sonra sizi biz ararız.</li>
+      <li>Bir şey ters giderse açıkça ve gecikmeden söylenir.</li>
+    </ul>
+  </div>
+
+  <h2>Görüş ve şikâyet</h2>
+  <div class="kart">
+    <p class="aciklama">Yüz yüze, telefonla ya da yazılı olarak iletebilirsiniz. Her başvuru kayda alınır, 3 iş günü içinde size dönülür. Şikâyetiniz tedavinize hiçbir şekilde yansımaz.</p>
+  </div>
+
+  <div id="kurulum"></div>
+
+  <h2>Gizlilik</h2>
+  <p class="aciklama">Bu uygulama hesap açtırmaz, çerez ve takip aracı kullanmaz. Girdiğiniz randevu ve talimat bilgileri yalnız bu telefonda kalır. Randevu talebini gönderdiğinizde mesaj WhatsApp üzerinden iletilir.</p>
+  <p class="not">Son güncelleme: <span data-guncelleme></span> · Sorumlu editör: <span data-editor></span></p>
+</section>
+
+</main>
+
+<nav class="sekme" role="tablist">
+  <button role="tab" data-sekme="bugun" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10.5 12 4l8 6.5V20H4z"/><path d="M10 20v-5h4v5"/></svg>Bugün</button>
+  <button role="tab" data-sekme="randevu" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Randevu</button>
+  <button role="tab" data-sekme="bakim" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 4c-2.5 0-4 2-4 4.5 0 3 1.2 4.6 1.8 7.5.4 2 1 4 2.2 4s1.4-2 2-4 1-2.5 2-2.5 1.4.5 2 2.5.8 4 2 4 1.8-2 2.2-4c.6-2.9 1.8-4.5 1.8-7.5C20 6 18.5 4 16 4c-1.6 0-2.6 1-4 1S9.6 4 8 4Z"/></svg>Bakım</button>
+  <button role="tab" data-sekme="klinik" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8v.01"/></svg>Klinik</button>
+</nav>
+
+<div class="perde" id="firca" role="dialog" aria-label="Fırçalama sayacı">
+  <button class="kapat" id="fircaKapat">Kapat</button>
+  <span class="etiket" style="color:rgba(242,238,232,.6)">Fırçalama</span>
+  <div class="halka">
+    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="rgba(242,238,232,.15)" stroke-width="4"/><circle id="fircaYay" cx="50" cy="50" r="45" fill="none" stroke="#F2EEE8" stroke-width="4" stroke-linecap="round" stroke-dasharray="282.74" stroke-dashoffset="282.74"/></svg>
+    <div class="sayi" id="fircaSayi">2:00</div>
+  </div>
+  <div class="bolgeler" id="bolgeler"><span>Üst sağ</span><span>Üst sol</span><span>Alt sağ</span><span>Alt sol</span></div>
+  <div class="dugmeler"><button class="dugme acik" id="fircaBasla">Başla</button></div>
+  <p class="not" style="color:rgba(242,238,232,.6)">Bitince macunu tükürün, suyla çalkalamayın.</p>
+</div>
+
+<div class="bildirim" id="bildirim" role="status"></div>
+</div>
+
+<script src="../assets/js/klinik.js"></script>
+<script src="talimatlar.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

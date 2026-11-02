@@ -29,7 +29,7 @@ const KLINIK = {
   gunMetni: "Pazartesi – Cumartesi",
   editor: "Dt. Deniz Baran Bek",
   slogan: "Sağlıkla • Güvenle • Birlikte",
-  guncelleme: "25.10.2026",
+  guncelleme: "02.11.2026",
 };
 
 const GUNLER = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];

@@ -419,7 +419,9 @@ footer a:hover { color: var(--krem); }
 .isaretler p { color: var(--kil); font-size: 15px; }
 
 .kroki { margin-top: 44px; }
-.kroki-sekmeler { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.kroki-sekmeler { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 16px; }
+.sekme-baslik { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--kil); margin-right: 6px; min-width: 190px; }
+.sekme-kir { flex-basis: 100%; height: 2px; }
 .kroki-sekmeler button { font: inherit; font-size: 15px; font-weight: 600; padding: 11px 18px; border-radius: 999px; border: 1.5px solid rgba(38, 40, 42, .22); background: var(--kagit);
   color: var(--antrasit); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: background .3s, color .3s, border-color .3s; }
 .kroki-sekmeler button:hover { border-color: var(--antrasit); }
@@ -442,6 +444,11 @@ footer a:hover { color: var(--krem); }
 .g-klinik { width: 12px; height: 12px; border-radius: 50%; background: var(--turuncu); box-shadow: 0 0 0 4px rgba(240, 124, 52, .25); }
 .g-p { width: 20px; height: 20px; border-radius: 50%; background: var(--antrasit); color: var(--krem); font-size: 11px; font-weight: 800; }
 .g-rota { width: 24px; height: 4px; border-radius: 2px; background: var(--turuncu); }
+.g-yuru { width: 24px; height: 4px; background: repeating-linear-gradient(90deg, var(--antrasit) 0 4px, transparent 4px 9px); }
+.oto-tel { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; font-size: 15px !important; }
+.oto-tel span { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--kil); }
+.oto-tel a { color: var(--antrasit); font-weight: 600; text-underline-offset: 3px; white-space: nowrap; }
+.kucuk-not { font-size: 14px !important; margin-top: 6px; }
 .kroki-not { margin-top: 14px; font-size: 13px; color: var(--kil); }
 
 /* kroki SVG */
@@ -480,12 +487,14 @@ footer a:hover { color: var(--krem); }
 .k-vale { stroke: var(--antrasit); stroke-dasharray: 2 13; stroke-width: 6; }
 .kroki[data-secili] .k-rota { animation: akis 1.1s linear infinite; }
 @keyframes akis { to { stroke-dashoffset: -18; } }
+.k-yuru { stroke: var(--antrasit); stroke-dasharray: 2 11; stroke-width: 5; }
 .kroki[data-secili="guney"] [data-rota="guney"], .kroki[data-secili="kuzey"] [data-rota="kuzey"], .kroki[data-secili="vale"] [data-rota="vale"],
+.kroki[data-secili="sili"] [data-rota="sili"], .kroki[data-secili="tunali"] [data-rota="tunali"],
 .kroki[data-secili="otopark"] [data-rota="otopark"], .kroki[data-secili="onu"] [data-rota="guney"] { opacity: 1; }
 .kroki[data-secili="vale"] [data-rota="guney"], .kroki[data-secili="otopark"] [data-rota="guney"] { opacity: .28; }
 .kroki[data-secili="onu"] .k-onu { opacity: 1; }
-.kroki[data-secili="vale"] .k-p circle, .kroki[data-secili="otopark"] .k-p circle { fill: var(--turuncu); }
-.kroki[data-secili="vale"] .k-p text, .kroki[data-secili="otopark"] .k-p text { fill: var(--gece); }
+.kroki[data-secili="vale"] .k-p circle, .kroki[data-secili="otopark"] .k-p circle, .kroki[data-secili="tunali"] .k-p circle { fill: var(--turuncu); }
+.kroki[data-secili="vale"] .k-p text, .kroki[data-secili="otopark"] .k-p text, .kroki[data-secili="tunali"] .k-p text { fill: var(--gece); }
 
 .secenekler { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 52px; }
 .secenekler article { background: var(--kagit); border: 1px solid var(--cizgi); border-radius: var(--yaricap); overflow: hidden; display: flex; flex-direction: column; }
@@ -502,6 +511,17 @@ footer a:hover { color: var(--krem); }
 .kapi-dizi { grid-template-columns: repeat(3, 1fr); }
 .kapi-dizi figure { aspect-ratio: 4 / 3.2; }
 .kapi-dizi figcaption b { display: block; font-size: 17px; }
+.gelmeden { list-style: none; counter-reset: g; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 52px; }
+.gelmeden li { counter-increment: g; background: var(--kagit); border: 1px solid var(--cizgi); border-radius: var(--yaricap); padding: 26px; display: flex; flex-direction: column; gap: 8px; }
+.gelmeden li::before { content: counter(g); font-family: "Serif", Georgia, serif; font-style: italic; font-size: 38px; line-height: 1; color: var(--turuncu); margin-bottom: 8px; }
+.gelmeden b { font-size: 18px; letter-spacing: -.01em; line-height: 1.25; }
+.gelmeden p { color: var(--kil); font-size: 15px; }
+.gelmeden .dugme, .gelmeden .baglanti { margin-top: auto; align-self: flex-start; }
+.gelmeden .baglanti { padding-top: 10px; color: var(--antrasit); font-weight: 600; text-underline-offset: 4px; }
+.gelmeden .dugme { padding: 10px 16px; font-size: 14px; }
+.alt-konum { margin-top: 10px; }
+.cagri .saat.gelis { margin-top: 6px; }
+.cagri .saat.gelis a { color: inherit; text-underline-offset: 3px; }
 .canli-harita { position: relative; margin-top: 40px; aspect-ratio: 16 / 7; border-radius: var(--yaricap); overflow: hidden; isolation: isolate; background: var(--gece); }
 .canli-harita > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; filter: blur(2px) brightness(.55); scale: 1.04; }
 .canli-harita > div { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; padding: 28px; text-align: center; }
@@ -510,11 +530,14 @@ footer a:hover { color: var(--krem); }
 .canli-harita iframe { width: 100%; height: 100%; border: 0; display: block; }
 @media (max-width: 1080px) {
   .isaretler { grid-template-columns: 1fr 1fr; }
+  .gelmeden { grid-template-columns: 1fr 1fr 1fr; }
   .kroki-ic { grid-template-columns: 1fr; }
   .secenekler { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 760px) {
-  .isaretler, .secenekler, .kapi-dizi { grid-template-columns: 1fr; }
+  .isaretler, .secenekler, .kapi-dizi, .gelmeden { grid-template-columns: 1fr; }
+  .sekme-kir { display: none; }
+  .sekme-baslik { min-width: 0; flex: none; white-space: nowrap; margin-left: 6px; }
   .kroki-sekmeler { flex-wrap: nowrap; overflow-x: auto; margin: 0 calc(var(--kenar) * -1) 14px; padding: 0 var(--kenar) 4px; scrollbar-width: none; }
   .kroki-sekmeler::-webkit-scrollbar { display: none; }
   .kroki-sekmeler button { flex: none; }
@@ -577,7 +600,7 @@ footer a:hover { color: var(--krem); }
   .metin { font-size: 18px; }
   .yazar { grid-template-columns: 64px 1fr; } .yazar img { width: 64px; height: 64px; }
   .foto-dizi figure { aspect-ratio: 4 / 4.4; }
-  .alt-cubuk { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 12px; right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); z-index: 25;
+  .alt-cubuk { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 8px; position: fixed; left: 12px; right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); z-index: 25;
     padding: 8px; border-radius: 999px; background: rgba(30, 28, 27, .92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, .3); transform: translateY(150%); transition: transform .6s var(--yumusak); }
   .alt-cubuk.gor { transform: none; }

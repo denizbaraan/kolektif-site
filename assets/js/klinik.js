@@ -26,7 +26,9 @@ const KLINIK = {
   yandexHarita: "https://yandex.com.tr/maps/?rtext=~39.90317%2C32.85938&rtt=auto&z=17",
   binaAdi: "MEK Life Country",
   // Otoparkçı (Deniz, 03.11.2026): kliniğin önünden köşeden sağa dönüp aşağı iniliyor, köşede. Ücret/indirim sitede yazılmaz (RG 33075 m.5/1-m).
-  otopark: { ad: "Yıldız Otomotiv", adres: "Tunus Caddesi No: 96 (Kuğulu Park arkası), Çankaya" },
+  // Telefonlar Deniz'in isteğiyle (03.11.2026) — araçla ilgili bir şey olursa hasta doğrudan arayabilsin. Hizmet listesi yazılmaz (m.5/1-h).
+  otopark: { ad: "Yıldız Otomotiv", adres: "Tunus Caddesi No: 96 (Kuğulu Park arkası), Çankaya",
+             tel: ["0532 307 48 85", "0541 739 59 66"], telLink: ["tel:+905323074885", "tel:+905417395966"] },
   instagram: "kolektifclinic.kavaklidere",
   instagramMarka: "kolektifdentalclinics",
   hekimler: ["Dt. Deniz Baran Bek", "Dt. Esra Yavuz"],

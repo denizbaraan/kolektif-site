@@ -28,6 +28,7 @@
     yaz("[data-ad]", e => e.textContent = KLINIK.ad);
     yaz("[data-editor]", e => e.textContent = KLINIK.editor);
     yaz("[data-guncelleme]", e => e.textContent = KLINIK.guncelleme);
+    yaz("[data-oto-tel]", a => { const i = +a.dataset.otoTel; a.href = KLINIK.otopark.telLink[i]; a.textContent = KLINIK.otopark.tel[i]; });
 
     /* 2 — açık/kapalı */
     const d = klinikDurumu();
@@ -189,6 +190,20 @@
     }));
     sec(kroki.dataset.secili || sekmeler[0].dataset.sekme);
   }
+
+  /* 6b — konumu paylaş: telefonda paylaşım menüsü açılır; olmazsa adres + bağlantı panoya kopyalanır */
+  $$("[data-paylas]").forEach(b => b.addEventListener("click", async () => {
+    const K = typeof KLINIK !== "undefined" ? KLINIK : null;
+    const url = (K ? K.site : location.origin) + "/ulasim/";
+    const metin = K ? `${K.kisaAd} · ${K.adres} · Mısır Büyükelçiliği'nin karşısı. Yol tarifi: ${K.yolTarifi}` : document.title;
+    const ilk = b.textContent;
+    try {
+      if (navigator.share) { await navigator.share({ title: K ? K.kisaAd : document.title, text: metin, url }); return; }
+      await navigator.clipboard.writeText(metin + "\n" + url);
+      b.textContent = "Kopyalandı";
+    } catch (_) { if (!navigator.share) b.textContent = "Kopyalanamadı"; }
+    setTimeout(() => b.textContent = ilk, 2200);
+  }));
 
   /* 7 — canlı harita yalnız istenince yüklenir (site çerez kullanmaz; Google'ınki tıklamadan sonra devreye girer) */
   $$("[data-canli-harita]").forEach(k => $("button", k).addEventListener("click", () => {

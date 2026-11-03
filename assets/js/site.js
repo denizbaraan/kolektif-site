@@ -15,7 +15,11 @@
     const yaz = (s, f) => $$(s).forEach(f);
     yaz("[data-tel]", a => a.href = KLINIK.telLink);
     yaz("[data-tel-metin]", a => a.textContent = KLINIK.tel);
-    yaz("[data-wa]", a => { a.href = "https://wa.me/" + KLINIK.whatsapp; a.target = "_blank"; a.rel = "noopener"; });
+    // WhatsApp: data-wa="hazır mesaj" (boşsa randevu mesajı); data-wa-paylas → konumu kişi seçerek gönder
+    const waMesaj = "Merhaba, Kolektif Kavaklıdere'den randevu almak istiyorum.";
+    const konumMesaji = `${KLINIK.kisaAd} · ${KLINIK.adres} · Mısır Büyükelçiliği'nin tam karşısı.\nYol tarifi: ${KLINIK.yolTarifi}\nUlaşım ve otopark: ${KLINIK.site}/ulasim/`;
+    yaz("[data-wa]", a => { a.href = `https://wa.me/${KLINIK.whatsapp}?text=${encodeURIComponent(a.dataset.wa || waMesaj)}`; a.target = "_blank"; a.rel = "noopener"; });
+    yaz("[data-wa-paylas]", a => { a.href = "https://wa.me/?text=" + encodeURIComponent(konumMesaji); a.target = "_blank"; a.rel = "noopener"; });
     yaz("[data-ig]", a => { a.href = "https://instagram.com/" + KLINIK.instagram; a.textContent = "@" + KLINIK.instagram; });
     yaz("[data-harita]", a => a.href = KLINIK.harita);
     yaz("[data-yol]", a => a.href = KLINIK.yolTarifi);

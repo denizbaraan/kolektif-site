@@ -18,6 +18,9 @@
     yaz("[data-wa]", a => { a.href = "https://wa.me/" + KLINIK.whatsapp; a.target = "_blank"; a.rel = "noopener"; });
     yaz("[data-ig]", a => { a.href = "https://instagram.com/" + KLINIK.instagram; a.textContent = "@" + KLINIK.instagram; });
     yaz("[data-harita]", a => a.href = KLINIK.harita);
+    yaz("[data-yol]", a => a.href = KLINIK.yolTarifi);
+    yaz("[data-apple]", a => a.href = KLINIK.appleHarita);
+    yaz("[data-yandex]", a => a.href = KLINIK.yandexHarita);
     yaz("[data-adres]", e => e.textContent = KLINIK.adres);
     yaz("[data-saat]", e => e.textContent = KLINIK.saatMetni);
     yaz("[data-saat-aralik]", e => e.textContent = KLINIK.saatAralik);
@@ -163,4 +166,35 @@
   };
   addEventListener("scroll", () => { if (!kare) { kare = true; requestAnimationFrame(kaydir); } }, { passive: true });
   kaydir();
+
+  /* 6 — ulaşım krokisi: seçilen rota öne çıkar, açıklaması yanda değişir; [data-goster] düğmeleri krokiye götürür */
+  const kroki = $(".kroki");
+  if (kroki) {
+    const sekmeler = $$("[role=tab]", kroki), paneller = $$("[role=tabpanel]", kroki);
+    const sec = (ad, odak) => {
+      kroki.dataset.secili = ad;
+      sekmeler.forEach(s => { const bu = s.dataset.sekme === ad; s.setAttribute("aria-selected", bu); s.tabIndex = bu ? 0 : -1; if (bu && odak) s.focus(); });
+      paneller.forEach(p => p.hidden = p.dataset.panel !== ad);
+    };
+    sekmeler.forEach((s, i) => {
+      s.addEventListener("click", () => sec(s.dataset.sekme));
+      s.addEventListener("keydown", e => {
+        const yon = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+        if (yon) { e.preventDefault(); sec(sekmeler[(i + yon + sekmeler.length) % sekmeler.length].dataset.sekme, true); }
+      });
+    });
+    $$("[data-goster]").forEach(a => a.addEventListener("click", e => {
+      e.preventDefault(); sec(a.dataset.goster);
+      kroki.scrollIntoView({ behavior: sakin ? "auto" : "smooth", block: "start" });
+    }));
+    sec(kroki.dataset.secili || sekmeler[0].dataset.sekme);
+  }
+
+  /* 7 — canlı harita yalnız istenince yüklenir (site çerez kullanmaz; Google'ınki tıklamadan sonra devreye girer) */
+  $$("[data-canli-harita]").forEach(k => $("button", k).addEventListener("click", () => {
+    const f = document.createElement("iframe");
+    f.src = k.dataset.canliHarita; f.title = "Kolektif Kavaklıdere — Google Haritalar"; f.loading = "lazy";
+    f.referrerPolicy = "no-referrer-when-downgrade"; f.allowFullscreen = true;
+    k.replaceChildren(f); k.classList.add("yuklu");
+  }));
 })();

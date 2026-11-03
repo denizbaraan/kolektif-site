@@ -18,6 +18,15 @@ const KLINIK = {
   adres: "Remzi Oğuz Arık Mah. Atatürk Bulvarı No: 233A, Kavaklıdere, 06680 Çankaya / Ankara",
   semt: "Kavaklıdere · Ankara",
   harita: "https://www.google.com/maps/search/?api=1&query=Kolektif+Kavakl%C4%B1dere+Atat%C3%BCrk+Bulvar%C4%B1+233A+%C3%87ankaya+Ankara",
+  // 03.11.2026: konum OSM'den doğrulandı — 233A, 235 ile 231 arasında, bulvarın doğu yakası, Mısır Büyükelçiliği (No: 126) karşısı.
+  // Eski değer (39.9120, 32.8549) ~1 km kuzeyi gösteriyordu.
+  konum: [39.90317, 32.85938],
+  yolTarifi: "https://www.google.com/maps/dir/?api=1&destination=Kolektif+Kavakl%C4%B1dere+Atat%C3%BCrk+Bulvar%C4%B1+233A+%C3%87ankaya+Ankara",
+  appleHarita: "https://maps.apple.com/?q=Kolektif%20Kavakl%C4%B1dere&ll=39.90317,32.85938&daddr=39.90317,32.85938",
+  yandexHarita: "https://yandex.com.tr/maps/?rtext=~39.90317%2C32.85938&rtt=auto&z=17",
+  binaAdi: "MEK Life Country",
+  // Otoparkçı (Deniz, 03.11.2026): kliniğin önünden köşeden sağa dönüp aşağı iniliyor, köşede. Ücret/indirim sitede yazılmaz (RG 33075 m.5/1-m).
+  otopark: { ad: "Yıldız Otomotiv", adres: "Tunus Caddesi No: 96 (Kuğulu Park arkası), Çankaya" },
   instagram: "kolektifclinic.kavaklidere",
   instagramMarka: "kolektifdentalclinics",
   hekimler: ["Dt. Deniz Baran Bek", "Dt. Esra Yavuz"],
@@ -29,7 +38,7 @@ const KLINIK = {
   gunMetni: "Pazartesi – Cumartesi",
   editor: "Dt. Deniz Baran Bek",
   slogan: "Sağlıkla • Güvenle • Birlikte",
-  guncelleme: "02.11.2026",
+  guncelleme: "03.11.2026",
 };
 
 const GUNLER = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];

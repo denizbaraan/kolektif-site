@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 942 1248" role="img" aria-labelledby="kroki-baslik kroki-aciklama" class="kroki-svg">
 <title id="kroki-baslik">Kolektif Kavaklıdere ulaşım krokisi</title>
-<desc id="kroki-aciklama">Klinik, Atatürk Bulvarı'nın doğu yakasında, Mısır Büyükelçiliği'nin karşısındaki köşe binada. Kuğulu Park güneyde, Tunalı Hilmi Caddesi doğuda. Otopark kliniğin hemen kuzeydoğusunda; araç girişi binanın yanındaki yoldan.</desc>
+<desc id="kroki-aciklama">Klinik, Atatürk Bulvarı'nın doğu yakasında, Mısır Büyükelçiliği'nin karşısındaki köşe binada. Kuğulu Park güneyde, Tunalı Hilmi Caddesi doğuda. Otopark kliniğin hemen kuzeydoğusunda; araç girişi binamızla Ziraat Bankası binası arasındaki yoldan ya da Tunus Caddesi'nden.</desc>
 <defs><pattern id="park-doku" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#6E6A64" opacity=".28"/></pattern><marker id="ok" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/></marker><marker id="bas" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="2.6" markerHeight="2.6"><circle cx="5" cy="5" r="4" fill="#FFFFFF" stroke="context-stroke" stroke-width="2"/></marker></defs>
 <rect width="942" height="1248" class="k-zemin"/>
 <g class="k-park">
@@ -874,21 +874,21 @@
 <path d="M-1.6,801.6 L6.3,836.7 L11.2,858.8"/>
 <path d="M-118.7,470.9 L-132.6,501.2 L-149.1,541.8 L-160.5,575.7 L-166.1,611.2 L-166.1,644.5 L-151.2,658.4 L-129.4,659.1 L-133.1,632.2 L-132.1,591.1 L-121.3,557.2 L-87.3,510.5 L-54.8,486.3 L-18.2,534.6 L1.7,552.3"/>
 </g>
-<g class="k-yol-kenar"><path d="M478.4,486.8 L514.9,481.8 L549.5,476.8 L580.3,451.8" stroke-width="9"/></g><g class="k-yol k-giris"><path d="M478.4,486.8 L514.9,481.8 L549.5,476.8 L580.3,451.8" stroke-width="6"/></g>
+<g class="k-yol-kenar"><path d="M486.1,514.3 L526.5,506.8 L570.7,496.8 L588.0,449.3" stroke-width="9"/></g><g class="k-yol k-giris"><path d="M486.1,514.3 L526.5,506.8 L570.7,496.8 L588.0,449.3" stroke-width="6"/></g>
 <path class="k-otopark" d="M642.9,395.0 L585.8,387.9 L552.9,393.9 L544.5,395.7 L564.3,471.6 L639.0,461.1 L642.9,395.0 Z"/>
-<path class="k-klinik" d="M488.0,516.9 L566.5,495.2 L580.0,546.2 L502.1,567.1 L488.0,516.9 Z"/>
+<path class="k-klinik" d="M491.9,529.2 L559.1,514.3 L580.3,546.7 L501.5,566.7 Z"/>
 <g class="k-rotalar">
 <path class="k-rota" data-rota="guney" d="M576.7,1036.5 L569.2,1010.4 L561.4,979.4 L554.6,947.1 L541.0,858.1 L528.4,772.2 L532.2,723.9 L486.1,534.2" marker-start="url(#bas)" marker-end="url(#ok)"/>
 <path class="k-rota" data-rota="kuzey" d="M199.2,-220.6 L255.8,-63.3 L261.9,-45.3 L344.4,196.6 L361.6,248.8 L377.4,302.4 L381.7,339.9 L389.3,371.2 L457.6,608.5 L463.2,633.0 L492.7,792.9 L498.8,808.4 L502.5,824.8 L515.5,902.0 L522.1,933.7 L525.0,955.0 L525.9,1016.3 L527.0,1074.9 L534.5,1058.1 L544.3,1015.5 L549.4,985.0 L551.0,947.8 L549.2,910.1 L547.5,868.4 L547.2,835.8 L547.1,812.7 L546.5,794.5 L532.2,723.9 L486.1,534.2" marker-start="url(#bas)" marker-end="url(#ok)"/>
 <path class="k-rota" data-rota="sili" d="M151.4,1181.3 L188.5,1162.8 L198.8,1153.1 L208.9,1144.3 L223.6,1133.2 L237.1,1125.2 L250.9,1118.5 L264.1,1113.6 L306.9,1108.9 L318.7,1108.9 L416.0,1109.4 L435.3,1108.5 L464.0,1101.4 L480.6,1096.0 L496.9,1089.1 L527.0,1074.9 L534.5,1058.1 L544.3,1015.5 L549.4,985.0 L551.0,947.8 L549.2,910.1 L547.5,868.4 L547.2,835.8 L547.1,812.7 L546.5,794.5 L532.2,723.9 L486.1,534.2" marker-start="url(#bas)" marker-end="url(#ok)"/>
-<path class="k-rota" data-rota="tunali" d="M749.0,694.2 L736.0,667.2 L724.5,626.5 L717.6,577.4 L715.4,544.3 L716.3,488.1 L722.4,404.7 L744.8,175.3 L752.8,62.0 L758.1,17.0" marker-start="url(#bas)" marker-end="url(#ok)"/>
-<path class="k-rota" data-rota="tunali" d="M199.2,-220.6 L255.8,-63.3 L261.9,-45.3 L344.4,196.6 L361.6,248.8 L377.4,302.4 L381.7,339.9 L389.3,371.2 L457.6,608.5 L463.2,633.0 L492.7,792.9 L498.8,808.4 L502.5,824.8 L515.5,902.0 L522.1,933.7 L525.0,955.0 L525.9,1016.3 L527.0,1074.9 L534.5,1058.1 L544.3,1015.5 L549.4,985.0 L551.0,947.8 L549.2,910.1 L547.5,868.4 L547.2,835.8 L547.1,812.7 L546.5,794.5 L532.2,723.9 L486.1,534.2" marker-end="url(#ok)"/>
-<path class="k-rota" data-rota="otopark" d="M499.6,574.2 L478.4,486.8 L514.9,481.8 L549.5,476.8 L580.3,451.8" marker-end="url(#ok)"/>
-<path class="k-rota k-vale" data-rota="vale" d="M484.2,519.2 L478.4,486.8 L514.9,481.8 L549.5,476.8 L580.3,451.8" marker-end="url(#ok)" marker-start="url(#ok)"/>
+<path class="k-rota" data-rota="tunali" d="M752.8,62.0 L650.1,67.4 L541.5,74.0 L564.9,242.1 L586.0,384.4 L595.6,414.4" marker-start="url(#bas)" marker-end="url(#ok)"/>
+<path class="k-rota k-yuru" data-rota="tunali" d="M588.0,449.3 L570.7,496.8 L526.5,506.8 L486.1,534.2" marker-end="url(#ok)"/>
+<path class="k-rota" data-rota="otopark" d="M503.4,584.2 L486.1,514.3 L526.5,506.8 L570.7,496.8 L588.0,449.3" marker-end="url(#ok)"/>
+<path class="k-rota k-vale" data-rota="vale" d="M488.0,539.2 L486.1,514.3 L526.5,506.8 L570.7,496.8 L588.0,449.3" marker-end="url(#ok)" marker-start="url(#ok)"/>
 </g>
-<g class="k-onu" data-rota-im="onu"><rect x="471.1" y="524.2" width="30" height="20" rx="4"/><text x="486.1" y="539.2">P</text></g>
+<g class="k-onu" data-rota-im="onu"><rect x="475.0" y="539.2" width="30" height="20" rx="4"/><text x="490.0" y="554.2">P</text></g>
 <g class="k-p"><circle cx="596.0" cy="414.3" r="19"/><text x="596.0" y="421.3">P</text></g>
-<g class="k-pin" transform="translate(524.9,528.5)"><circle r="34" class="k-pin-hale"/><circle r="15" class="k-pin-ic"/></g>
+<g class="k-pin" transform="translate(533.2,539.2)"><circle r="34" class="k-pin-hale"/><circle r="15" class="k-pin-ic"/></g>
 <text class="k-et k-yol-ad" x="399.7" y="574.2" text-anchor="middle" transform="rotate(-106.6 399.7 574.2)">ATATÜRK BULVARI</text>
 <text class="k-et k-yol-ad k-kucuk" x="566.8" y="224.7" text-anchor="middle" transform="rotate(-80 566.8 224.7)">TUNUS CD.</text>
 <text class="k-et k-yol-ad k-kucuk" x="730.1" y="299.6" text-anchor="middle" transform="rotate(-78 730.1 299.6)">TUNALI HİLMİ CD.</text>
@@ -902,8 +902,7 @@
 <text class="k-et k-yon" x="665.3" y="1217.2" text-anchor="start">Çankaya ↓</text>
 <text class="k-et k-yer" x="197.9" y="1089.4" text-anchor="middle">Şili Meydanı</text>
 <text class="k-et k-yol-ad k-kucuk" x="269.0" y="1176.3" text-anchor="middle" transform="rotate(-11 269.0 1176.3)">KUVEYT CD.</text>
-<text class="k-et k-yon k-ipucu" x="557.2" y="38.9" text-anchor="middle">Kennedy Cd. üzerinden bulvara ↺</text>
-<text class="k-et k-giris-ad" x="509.2" y="452.3" text-anchor="middle">giriş</text>
+<text class="k-et k-yer k-silik" x="528.4" y="455.8" text-anchor="middle">Ziraat Bankası</text>
 <g class="k-pusula" transform="translate(896,46)"><circle r="24"/><path d="M0,-15 L6,4 L0,0 L-6,4 Z"/><text y="19">K</text></g>
 <g class="k-olcek" transform="translate(28,46)"><path d="M0,0 V-7 M0,0 H225.0 V-7"/><text x="112.5" y="-12">100 m</text></g>
 <text class="k-atif" x="928" y="1234" text-anchor="end">Harita verisi © OpenStreetMap katkıcıları</text>

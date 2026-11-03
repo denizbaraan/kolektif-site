@@ -449,6 +449,8 @@ footer a:hover { color: var(--krem); }
 .oto-tel span { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--kil); }
 .oto-tel a { color: var(--antrasit); font-weight: 600; text-underline-offset: 3px; white-space: nowrap; }
 .kucuk-not { font-size: 14px !important; margin-top: 6px; }
+.uyari-kucuk { font-size: 14px !important; margin-top: 10px; padding: 12px 14px; border-radius: 8px; border-left: 3px solid var(--turuncu); background: rgba(240, 124, 52, .08); color: var(--antrasit) !important; }
+.uyari-kucuk b { display: block; }
 .kroki-not { margin-top: 14px; font-size: 13px; color: var(--kil); }
 
 /* kroki SVG */
@@ -487,14 +489,17 @@ footer a:hover { color: var(--krem); }
 .k-vale { stroke: var(--antrasit); stroke-dasharray: 2 13; stroke-width: 6; }
 .kroki[data-secili] .k-rota { animation: akis 1.1s linear infinite; }
 @keyframes akis { to { stroke-dashoffset: -18; } }
-.k-yuru { stroke: var(--antrasit); stroke-dasharray: 2 11; stroke-width: 5; }
+.k-giris path { stroke: #FFFFFF; }
+.k-giris-ad { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-anchor: middle; fill: var(--antrasit); opacity: 0; transition: opacity .4s; }
+.k-ipucu { font-size: 13px; opacity: 0; transition: opacity .4s; }
+.kroki[data-secili="tunali"] .k-ipucu, .kroki[data-secili="otopark"] .k-giris-ad, .kroki[data-secili="vale"] .k-giris-ad { opacity: 1; }
 .kroki[data-secili="guney"] [data-rota="guney"], .kroki[data-secili="kuzey"] [data-rota="kuzey"], .kroki[data-secili="vale"] [data-rota="vale"],
 .kroki[data-secili="sili"] [data-rota="sili"], .kroki[data-secili="tunali"] [data-rota="tunali"],
 .kroki[data-secili="otopark"] [data-rota="otopark"], .kroki[data-secili="onu"] [data-rota="guney"] { opacity: 1; }
 .kroki[data-secili="vale"] [data-rota="guney"], .kroki[data-secili="otopark"] [data-rota="guney"] { opacity: .28; }
 .kroki[data-secili="onu"] .k-onu { opacity: 1; }
-.kroki[data-secili="vale"] .k-p circle, .kroki[data-secili="otopark"] .k-p circle, .kroki[data-secili="tunali"] .k-p circle { fill: var(--turuncu); }
-.kroki[data-secili="vale"] .k-p text, .kroki[data-secili="otopark"] .k-p text, .kroki[data-secili="tunali"] .k-p text { fill: var(--gece); }
+.kroki[data-secili="vale"] .k-p circle, .kroki[data-secili="otopark"] .k-p circle { fill: var(--turuncu); }
+.kroki[data-secili="vale"] .k-p text, .kroki[data-secili="otopark"] .k-p text { fill: var(--gece); }
 
 .secenekler { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 52px; }
 .secenekler article { background: var(--kagit); border: 1px solid var(--cizgi); border-radius: var(--yaricap); overflow: hidden; display: flex; flex-direction: column; }

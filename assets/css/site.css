@@ -506,8 +506,21 @@ footer a:hover { color: var(--krem); }
 .secenekler figure { aspect-ratio: 4 / 3; overflow: hidden; background: var(--tas); }
 .secenekler figure img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
 .secenek-kroki { display: grid; place-items: center; color: var(--antrasit); }
-.secenek-kroki svg { width: 44%; }
-.secenek-kroki .sk-yol { stroke: var(--turuncu); stroke-width: 4; stroke-dasharray: 1 9; }
+.secenek-kroki { background: var(--krem); }
+.secenek-kroki .kroki-yakin { width: 100%; height: 100%; display: block; }
+.kroki-yakin .k-rota { opacity: 1; animation: akis 1.1s linear infinite; }
+.kroki-yakin .k-yol-ad, .kroki-yakin .k-yon, .kroki-yakin .k-p-ad { display: none; }
+.kroki-yakin .k-p circle { fill: var(--turuncu); }
+.kroki-yakin .k-p text { fill: var(--gece); }
+.otopark-bilgi { display: grid; grid-template-columns: 1fr 1fr 1.25fr; margin-top: 16px; border: 1px solid var(--cizgi); border-radius: var(--yaricap); background: var(--kagit); overflow: hidden; }
+.otopark-bilgi > div { padding: 24px 28px; display: flex; flex-direction: column; gap: 6px; }
+.otopark-bilgi > div + div { border-left: 1px solid var(--cizgi); }
+.otopark-bilgi .ust-yazi { margin-bottom: 4px; }
+.otopark-bilgi b { font-size: 19px; letter-spacing: -.01em; }
+.otopark-bilgi p { color: var(--kil); font-size: 15px; }
+.otopark-bilgi .oto-tel { font-size: 18px !important; gap: 4px 18px; }
+.otopark-bilgi .uyari { background: rgba(240, 124, 52, .08); }
+.otopark-bilgi .uyari p { color: var(--antrasit); }
 .secenekler article > div { padding: 26px 28px 30px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .secenekler .no { font-family: "Serif", Georgia, serif; font-style: italic; font-weight: 400; font-size: 44px; line-height: 1; color: var(--turuncu); }
 .secenekler h3 { font-size: 24px; }
@@ -538,9 +551,13 @@ footer a:hover { color: var(--krem); }
   .gelmeden { grid-template-columns: 1fr 1fr 1fr; }
   .kroki-ic { grid-template-columns: 1fr; }
   .secenekler { grid-template-columns: 1fr 1fr; }
+  .otopark-bilgi { grid-template-columns: 1fr 1fr; }
+  .otopark-bilgi .uyari { grid-column: 1 / -1; border-left: 0 !important; border-top: 1px solid var(--cizgi); }
 }
 @media (max-width: 760px) {
   .isaretler, .secenekler, .kapi-dizi, .gelmeden { grid-template-columns: 1fr; }
+  .otopark-bilgi { grid-template-columns: 1fr; }
+  .otopark-bilgi > div + div { border-left: 0; border-top: 1px solid var(--cizgi); }
   .sekme-kir { display: none; }
   .sekme-baslik { min-width: 0; flex: none; white-space: nowrap; margin-left: 6px; }
   .kroki-sekmeler { flex-wrap: nowrap; overflow-x: auto; margin: 0 calc(var(--kenar) * -1) 14px; padding: 0 var(--kenar) 4px; scrollbar-width: none; }

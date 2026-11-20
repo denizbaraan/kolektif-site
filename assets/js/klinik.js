@@ -4,10 +4,14 @@ const KLINIK = {
   ad: "Özel Kolektif Ağız ve Diş Sağlığı Polikliniği",
   kisaAd: "Kolektif Kavaklıdere",
   site: "https://kolektifdentalclinics.com",
-  tel: "0312 557 01 06",
-  telLink: "tel:+903125570106",
+  // 20.11.2026: ana numara 0554 (telefon + WhatsApp) — Google, Facebook ve WhatsApp Business ile aynı.
+  // 0312 sabit hat ikinci numara. Her platformda bu sıra: önce 0554, sonra 0312.
+  tel: "0554 253 69 06",
+  telLink: "tel:+905542536906",
   mobil: "0554 253 69 06",
   mobilLink: "tel:+905542536906",
+  sabit: "0312 557 01 06",
+  sabitLink: "tel:+903125570106",
   whatsapp: "905542536906",
   // Numarataj 16.01.2023: 233A = bağımsız bölüm 52. Posta kodu 06680 (Google İşletme kaydıyla aynı).
   sokak: "Remzi Oğuz Arık Mah. Atatürk Bulvarı No: 233A",
@@ -31,6 +35,13 @@ const KLINIK = {
              tel: ["0532 307 48 85", "0541 739 59 66"], telLink: ["tel:+905323074885", "tel:+905417395966"] },
   instagram: "kolektifclinic.kavaklidere",
   instagramMarka: "kolektifdentalclinics",
+  // 20.11.2026: kliniğin resmî kayıtları. Site JSON-LD sameAs buradan okur; yeni platform açıldıkça eklenir.
+  profiller: [
+    "https://www.google.com/maps?cid=9903470921610910247",
+    "https://yandex.com.tr/maps/org/132514158850/",
+    "https://www.facebook.com/profile.php?id=61595408226920",
+    "https://www.instagram.com/kolektifclinic.kavaklidere/"
+  ],
   hekimler: ["Dt. Deniz Baran Bek", "Dt. Esra Yavuz"],
   // 0 = Pazar. [açılış, kapanış] saat olarak; null = kapalı
   // 25.10.2026 (Deniz): Pzt–Cmt 09–22, Pazar kapalı. Google İşletme Profili de bununla aynı olmalı.
@@ -40,7 +51,7 @@ const KLINIK = {
   gunMetni: "Pazartesi – Cumartesi",
   editor: "Dt. Deniz Baran Bek",
   slogan: "Sağlıkla • Güvenle • Birlikte",
-  guncelleme: "03.11.2026",
+  guncelleme: "20.11.2026",
 };
 
 const GUNLER = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];

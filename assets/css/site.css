@@ -718,3 +718,4 @@ footer a:hover { color: var(--krem); }
 @media (max-width: 760px) { .sahne-dizi { grid-template-columns: 1fr 1fr; } .sahne-dizi .sahne-ana { grid-column: 1 / -1; grid-row: auto; min-height: 280px; } }
 @media (min-width: 1001px) { .foto-dizi { grid-template-columns: repeat(3, 1fr); } }
 .rahat figure img { object-position: center 62%; }
+@media (max-width: 760px) { .klinik-giris .yuzen { display: none; } }

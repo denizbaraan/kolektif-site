@@ -681,3 +681,40 @@ footer a:hover { color: var(--krem); }
   .yol::after { transform: none; }
   @view-transition { navigation: none; }
 }
+
+/* ——— v9 (21.11.2026): enerji — turuncu yüzey (üstünde yalnız antrasit yazı; kimlik 6.0 kuralı) ——— */
+.turuncu-bolum { background: var(--turuncu); color: var(--antrasit); }
+.turuncu-bolum .ust-yazi { color: var(--antrasit); }
+.turuncu-bolum .ust-yazi::before { background: var(--antrasit); }
+.turuncu-bolum .giris-metni, .turuncu-bolum .soz-listesi p { color: rgba(38, 40, 42, .86); }
+.turuncu-bolum .soz-listesi li { border-color: rgba(38, 40, 42, .22); }
+.turuncu-bolum .soz-listesi .ikon { background: rgba(252, 250, 246, .55); color: var(--antrasit); }
+.turuncu-bolum figure { box-shadow: 0 30px 60px -30px rgba(30, 28, 27, .45); }
+.rahat figure img { object-position: center 30%; }
+.karo.turuncu { background: var(--turuncu); color: var(--antrasit); border: 0; }
+.karo.turuncu p { color: rgba(38, 40, 42, .86); }
+.karo.turuncu .ikon { background: rgba(252, 250, 246, .55); color: var(--antrasit); }
+.turuncu-serit { background: var(--turuncu); border-color: transparent; color: var(--antrasit); }
+.turuncu-serit b { color: var(--antrasit); }
+.dugme:not(.bos):not(.bos-acik):hover { background: var(--turuncu); color: var(--antrasit); }
+
+/* galeri: sayfayı kilitlemeyen yatay şerit (kaydırma, dokunma, oklar) */
+.galeri-ray { scroll-behavior: smooth; overscroll-behavior-x: contain; }
+.galeri-ok { display: flex; gap: 10px; justify-content: flex-end; margin-top: 22px; }
+.ok-dugme { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--cizgi); background: var(--beyaz); color: var(--antrasit); font: 600 18px/1 "Gabarito", sans-serif; cursor: pointer; transition: background .25s, color .25s, border-color .25s; }
+.ok-dugme:hover { background: var(--turuncu); border-color: var(--turuncu); }
+.galeri img { inset: 0; width: 100%; }
+@media (min-width: 1001px) { .galeri figure, .galeri figure.genis { flex: 0 0 auto; height: min(58vh, 560px); max-width: none; } .galeri figure { width: calc(min(58vh, 560px) * .75); } .galeri figure.genis { width: calc(min(58vh, 560px) * 1.33); } }
+/* daha akıcı kaydırma: kaydırırken bulanıklık yükü azaltıldı */
+.bar.dolu { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+
+/* hekim sayfası: sahnede */
+.sahne-dizi { display: grid; grid-template-columns: 2fr 1fr; gap: 14px; margin-top: 36px; }
+.sahne-dizi figure { position: relative; border-radius: var(--yaricap); overflow: hidden; margin: 0; min-height: 260px; }
+.sahne-dizi figure img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.sahne-dizi .sahne-ana { grid-row: span 2; min-height: 540px; }
+.sahne-dizi figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 60px 18px 16px; color: var(--krem); font-size: 14px; line-height: 1.4; background: linear-gradient(180deg, transparent, rgba(20, 18, 17, .82)); }
+.sahne-dizi figcaption b { display: block; font-size: 17px; }
+@media (max-width: 760px) { .sahne-dizi { grid-template-columns: 1fr 1fr; } .sahne-dizi .sahne-ana { grid-column: 1 / -1; grid-row: auto; min-height: 280px; } }
+@media (min-width: 1001px) { .foto-dizi { grid-template-columns: repeat(3, 1fr); } }
+.rahat figure img { object-position: center 62%; }

@@ -84,8 +84,9 @@
   /* 5b — şerit: kendi hızında akar, kaydırma hızıyla hızlanır */
   const seritler = $$(".serit-ic").map(el => { el.innerHTML += el.innerHTML; return { el, x: 0 }; });
   let hiz = 0, onceki = scrollY;
-  if (!sakin && seritler.length) {
-    const ak = () => {
+  let seritGorunur = true;
+  const ak = () => {
+      if (!seritGorunur) return;
       const fark = scrollY - onceki; onceki = scrollY;
       hiz += (Math.min(Math.abs(fark), 80) * .06 - hiz) * .1;
       seritler.forEach(s => {
@@ -95,22 +96,18 @@
         s.el.style.transform = `translate3d(${s.x}px,0,0)`;
       });
       requestAnimationFrame(ak);
-    };
+  };
+  if (!sakin && seritler.length) {
+    if ("IntersectionObserver" in window) new IntersectionObserver(es => es.forEach(e => {
+      const once = seritGorunur; seritGorunur = e.isIntersecting;
+      if (!once && seritGorunur) requestAnimationFrame(ak);
+    })).observe(seritler[0].el.parentElement);
     requestAnimationFrame(ak);
   }
 
-  /* 5c — yatay galeri (yalnız masaüstü) */
+  /* 5c — galeri: sayfayı kilitlemeyen yatay şerit; oklar bir ekran kaydırır */
   const galeri = $(".galeri"), ray = galeri && $(".galeri-ray", galeri);
-  let fazla = 0;
-  const galeriOlc = () => {
-    if (!galeri) return;
-    const yatay = masaustu.matches && !sakin;
-    galeri.classList.toggle("yatay", yatay);
-    if (!yatay) { galeri.style.height = ""; ray.style.transform = ""; return; }
-    fazla = Math.max(0, ray.scrollWidth - innerWidth);
-    galeri.style.height = innerHeight + fazla + "px";
-  };
-  galeriOlc(); addEventListener("resize", () => { galeriOlc(); hareket(); }); masaustu.addEventListener?.("change", galeriOlc);
+  $$("[data-galeri]").forEach(b => b.addEventListener("click", () => ray.scrollBy({ left: +b.dataset.galeri * ray.clientWidth * .8, behavior: sakin ? "auto" : "smooth" })));
 
   /* 5d — mıknatıs düğmeler (fare kullananlarda) */
   if (!sakin && matchMedia("(pointer: fine)").matches) $$(".miknatis").forEach(b => {
@@ -123,7 +120,7 @@
 
   /* 5e — kaydırmaya bağlı her şey tek karede */
   const yol = $(".yol");
-  const paralaks = $$("[data-paralaks]"), kacan = $("[data-kac]");
+  const paralaks = $$("[data-paralaks]");
   const basliklar = $$(".metin h2[id]"), toc = $$(".icindekiler a");
   let son = scrollY, kare = false;
 
@@ -133,20 +130,11 @@
       const r = yol.getBoundingClientRect();
       yol.style.setProperty("--p", sinir((h * .62 - r.top) / r.height));
     }
-    if (galeri?.classList.contains("yatay")) {
-      const r = galeri.getBoundingClientRect(), p = sinir(-r.top / (r.height - h));
-      ray.style.transform = `translate3d(${-p * fazla}px,0,0)`;
-      $$("img", ray).forEach((im, k) => im.style.transform = `translate3d(${(p - .5) * 40 - k * 2}px,0,0)`);
-    }
     paralaks.forEach(e => {
       const r = e.parentElement.getBoundingClientRect();
       if (r.bottom < 0 || r.top > h) return;
       e.style.transform = `translate3d(0,${((r.top + r.height / 2 - h / 2) / h) * parseFloat(e.dataset.paralaks) * -100}px,0)`;
     });
-    if (kacan && y < h * 1.2) {
-      kacan.style.transform = `translate3d(0,${y * .18}px,0)`;
-      kacan.style.opacity = sinir(1 - y / (h * .95));
-    }
     if (toc.length) {
       let a = 0; basliklar.forEach((b, k) => { if (b.getBoundingClientRect().top < 160) a = k; });
       toc.forEach((t, k) => t.classList.toggle("yan", k === a));
